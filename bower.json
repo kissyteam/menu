@@ -20,6 +20,7 @@
         "modulex-component": "modulex-component#master"
     },
     "devDependencies": {
-        "modulex-css": "modulex-css#master"
+        "modulex-css": "modulex-css#master",
+        "modulex-separator": "modulex-separator#master"
     }
 }

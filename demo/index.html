@@ -35,7 +35,7 @@
             }
         }
     });
-    require("node,menu", function (Node, Menu) {
+    require("node,menu,separator", function (Node, Menu) {
         var sb = new Menu.PopupMenu({
             // boolean，是否鼠标脱离菜单后自动隐藏
             // autoHideOnMouseLeave:true,
@@ -103,6 +103,9 @@
                 {
                     xclass: 'check-menuitem',
                     content: "checkable menuitem"
+                },
+                {
+                    xclass: 'separator'
                 },
                 {
                     xclass: 'submenu',
