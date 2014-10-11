@@ -1,0 +1,1 @@
+modulex.config("requires",{"menu":["util","component/container","component/extension/delegate-children","node","component/control","component/extension/content-box","xtemplate/runtime","component/extension/align","component/extension/shim"]});

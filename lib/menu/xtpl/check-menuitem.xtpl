@@ -1,0 +1,3 @@
+<div class="{{getBaseCssClasses ('checkbox')}}">
+</div>
+<div class="{{getBaseCssClasses ('content')}}">{{{content}}}</div>

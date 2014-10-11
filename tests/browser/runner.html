@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>menu tests</title>
+    <link rel='stylesheet' href='/node_modules/mocha/mocha.css'/>
+    <style>
+        html, body {
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center">menu tests</h1>
+
+<div id='mocha'></div>
+<script src="/node_modules/simulate-dom-event/index.js"></script>
+<script src="/node_modules/async/lib/async.js"></script>
+<script src="/node_modules/node-jscover/lib/front-end/header.js"></script>
+<script src="/node_modules/node-jscover/lib/front-end/jscoverage-branch.js"></script>
+<script src='/node_modules/expect.js/index.js'></script>
+<script src='/node_modules/mocha/mocha.js'></script>
+<script src='/node_modules/node-jscover/lib/reporters/mocha/console.js'></script>
+<script src='/node_modules/node-jscover-coveralls/lib/reports/mocha.js'></script>
+<script src="/mx_modules/modulex-debug.js"></script>
+<script src="/mx_modules/ua-debug.js"></script>
+<script src="/mx_modules/feature-debug.js"></script>
+<script src="/mx_modules/meta.js"></script>
+<link href="/build/menu/assets/dpl.css" rel="stylesheet"/>
+<script>
+    function waits(ms) {
+        return function (next) {
+            setTimeout(next, ms);
+        };
+    }
+    function runs(fn) {
+        return function (next) {
+            if (fn.length) {
+                fn(next);
+            } else {
+                fn();
+                next();
+            }
+        };
+    }
+    mocha.setup('bdd');
+    var isBuild = location.href.indexOf('build') !== -1;
+    var isCoverage = location.search.indexOf('coverage') !== -1;
+    if (location.href.indexOf('__testling') !== -1) {
+        mocha.reporter('tap');
+    }
+</script>
+<script>
+    (function () {
+        require.config({
+            base: '/mx_modules',
+            packages: {
+                specs: {
+                    base: '/tests/browser/specs'
+                }
+            }
+        });
+
+        require.config({
+            packages: {
+                'menu': {
+                    filter: isCoverage ? 'coverage' : isBuild ? 'debug' : '',
+                    base: isBuild ? '/build/menu' : '/lib/menu'
+                }
+            }
+        });
+
+        require(['specs/'], function () {
+            var runner;
+            if (window.mochaPhantomJS) {
+                runner = mochaPhantomJS.run();
+                if (isCoverage) {
+                    window.nodeJsCoverCoveralls(runner);
+                }
+            } else {
+                runner = mocha.run();
+            }
+        });
+    })();
+</script>
+</body>
+</html>
