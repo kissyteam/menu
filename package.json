@@ -1,6 +1,6 @@
 {
     "name": "modulex-menu",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "yiminghe <yiminghe@gmail.com>",
     "engines": {
         "node": "~0.11"
@@ -55,7 +55,8 @@
         "node-jscover-handler": "^1.0.3",
         "simulate-dom-event": "^1.0.1",
         "precommit-hook": "^1.0.7",
-        "xtemplate":"3.2.2",
+        "xtemplate":"3.x",
+        "gulp-wrapper": "^0.1.5",
         "gulp-xtemplate": "^1.1.0"
     },
     "precommit": [
@@ -63,6 +64,7 @@
     ],
     "scripts": {
         "start": "node --harmony server",
+        "publish": "gulp tag",
         "test": "",
         "lint": "gulp lint",
         "browser-test": "mocha-phantomjs http://localhost:8037/tests/browser/runner.html",

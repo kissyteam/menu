@@ -1,3 +1,8 @@
+/*
+Copyright 2014, modulex-menu@1.0.1
+MIT Licensed
+build time: Thu, 16 Oct 2014 07:37:48 GMT
+*/
 modulex.add("menu", ["util","component/container","component/extension/delegate-children","node","component/control","component/extension/align","component/extension/shim","component/extension/content-box","xtemplate/runtime"], function(require, exports, module) {
 var _util_ = require("util");
 var componentContainer = require("component/container");
@@ -762,6 +767,7 @@ _menu_ = function (exports) {
   Menu.SubMenu = menuSubmenu;
   Menu.PopupMenu = menuPopupmenu;
   exports = Menu;
+  Menu.version = '1.0.1';
   return exports;
 }();
 module.exports = _menu_;

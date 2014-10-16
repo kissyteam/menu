@@ -1,1 +1,6 @@
+/*
+Copyright 2014, modulex-menu@1.0.1
+MIT Licensed
+build time: Thu, 16 Oct 2014 07:37:48 GMT
+*/
 modulex.config("requires",{"menu":["util","component/container","component/extension/delegate-children","node","component/control","component/extension/content-box","xtemplate/runtime","component/extension/align","component/extension/shim"]});
